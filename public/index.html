@@ -11,26 +11,41 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" ng-app="workoutBuddy" ng-controller="mainCtrl">
         <!-- Navigation -->
-        <nav>Logo Profile WishList Settings</nav>
+        <div class="row">
+            <nav>
+                <div class="col-md-2">
+                    Logo
+                </div>
+                <div class="col-md-2">
+                    Profile
+                </div>
+                <div class="col-md-2">
+                    WishList
+                </div>
+                <div class="col-md-2">
+                    Settings
+                </div>
+            </nav>
+        </div>
 
         <!-- Stats, Goals, Progress -->
         <div class="row">
             <div class="col-md-4">
-                Stats
+                {{successionCounter}}
             </div>
             <div class="col-md-4">
-                Goals
+                {{goal}}
             </div>
             <div class="col-md-4">
-                Progress
+                {{progress}}
             </div>
         </div>
 
         <!-- Motivational Quote -->
         <div class="row">
-            Motivational Quote
+            {{quote}}
         </div>
 
         <!-- WorkOut Button -->
@@ -41,7 +56,7 @@
             </div>
             <!-- Button -->
             <div class="row">
-                I Worked Out! Button
+                <input type="button" class="btn btn-success" value="I Worked Out!" ng-click="workedOut()">
             </div>
         </div>
     </div>
