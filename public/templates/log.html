@@ -1,42 +1,47 @@
 <h1>{{name}}'s Log Database</h1>
 
-<div class="row">
-    <div class="col-md-12">
-        {{currentStreakCounter}}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        {{currentStreakCounter}}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        {{currentStreakCounter}}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        {{currentStreakCounter}}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        {{currentStreakCounter}}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        {{currentStreakCounter}}
-    </div>
-</div>
-    <div class="col-md-4">
-        {{savings}}
-    </div>
-    <div class="col-md-4">
-        {{workoutCost}}
-    </div>
+    <div>
+        <div class="row">
+            <div class="col-md-12 date">
+                Log for {{date}}
+            </div>
+        </div>
 
+
+        <div class="row">
+            <div class="col-md-6">
+            Each completed workout nets {{workoutCost | currency}} to the savings account.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 currentStreak">
+            Your current streak is at {{currentStreakCounter}} days.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 savings">
+                You saved {{savings | currency}} from completed exercises.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                {{}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{}}
+            </div>
+        </div>
+            <div class="col-md-4">
+                {{}}
+            </div>
+            <div class="col-md-4">
+                {{}}
+            </div>
+    </div>
 
 
 
