@@ -11,13 +11,13 @@ app.factory('mainFactory', ['$http', function ($http) {
             .then(function(data){return data})
     }
 
-    workoutObj.postUser = function (userObj){
-        return $http.post('/post-user', userObj)
-            .then(function(data){return data})
-    }
+    // workoutObj.postUser = function (userObj){
+    //     return $http.post('/post-user', userObj)
+    //         .then(function(data){return data})
+    // }
 
-    workoutObj.postLog = function (id, logObj){
-        return $http.post('/post-log/' + id, logObj)
+    workoutObj.postLog = function (userId, logObj){
+        return $http.post('/post-log/' + userId, logObj)
             .then(function(data){return data})
     }
 
