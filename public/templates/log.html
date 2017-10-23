@@ -5,28 +5,28 @@
             </div>
     </div>  
 
-    <div ng-repeat="main in main">
+    <div ng-repeat="log in main.logs">
         <div class="row log-row">
             <div class="col-md-12 date text-center">
-                Log Entry for {{logDate | date}}
+                Log Entry for {{log.date | date}}
             </div>
         </div>
 
         <div class="row log-row">
             <div class="col-md-6 workoutCost text-center">
-            Each completed workout nets {{logWorkoutCost | currency}} to the savings account.
+            Each completed workout nets {{log.workoutCost | currency}} to the savings account.
             </div>
             <div class="col-md-6 currentStreak text-center">
-            Your current streak is at {{logCurrentStreakCounter}} days.
+            Your current streak is at {{log.currentStreakCounter}} days.
             </div>
         </div>
         <div class="row log-row">
             <div class="col-md-6 savings text-center">
-                You have saved {{logSavings | currency}} from completed exercises.
+                You have saved {{log.savings | currency}} from completed exercises.
             </div>
         
             <div class="col-md-6 bonusStreakAdded text-center">
-                By the way, with this log you add a bonus of  {{logBonusStreakAdded | currency}} because you hit your goals.
+                By the way, with this log you add a bonus of  {{log.bonusStreakAdded | currency}} because you hit your goals.
             </div>
         </div>
     </div>
