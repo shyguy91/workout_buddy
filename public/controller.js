@@ -23,6 +23,13 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
                 workoutCost: 1,
                 date: new Date(),
                 bonusStreakAdded: 0
+            }, 
+            {
+                currentStreakCounter: 3,
+                savings: 8,
+                workoutCost: 1,
+                date: new Date(),
+                bonusStreakAdded: 2
             }]
     }
     // PROFILE //
@@ -42,6 +49,7 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
     // WorkOut Button
     $scope.workedOut = function () {
         alert("I worked out!")
+        mainFactory.getUser(mainFactory.dummyData.tempId).then(function(data){console.log(data)})
         //post log
         var logObj = {};
         switch (mainFactory.dummyData.settings.goalIntervalSetting) {
