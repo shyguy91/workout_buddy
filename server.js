@@ -24,7 +24,6 @@ var handler = function (res, next) {
 }
 
 app.get("/get-user/:id", function (req, res, next) {
-  console.log(req.params.id);
   Workout.findById(req.params.id ,handler(res,next));
 });
 
@@ -33,9 +32,6 @@ app.get("/get-user/:id", function (req, res, next) {
 app.post("/post-log/:userId", function(req, res, next){
   var workoutId = req.params.userId;
   var logToBeSaved = req.body;
-  console.log(workoutId)
-  console.log(logToBeSaved) 
-
       Workout.findById(workoutId, function(err, workout){
       workout.logs.push(logToBeSaved);
       workout.save();
