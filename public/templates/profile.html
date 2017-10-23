@@ -1,27 +1,33 @@
 <!-- Stats, Goals, Progress -->
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 text-center">
         {{successionCounter}}
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 text-center">
         {{goal}}
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 text-center">
         {{progress}}
     </div>
 </div>
 
 <!-- Motivational Quote -->
 <div class="row">
+        <div class="col-md-12 text-center">
     {{quote}}
+    </div>
 </div>
 
 <!-- WorkOut Button -->
 <div>
     <!-- Date & Time -->
     <div class="row">
+        <div class="col-md-6 text-center">
         Date Time
-        <input type="datetime-local" ng-model="date">
+        </div>
+        <div class="col-md-6 text-center">
+            <input type="datetime-local" ng-model="date">
+         </div>
     </div>
     <!-- Button -->
     <div class="row">
