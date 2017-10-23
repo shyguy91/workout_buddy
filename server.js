@@ -23,8 +23,9 @@ var handler = function (res, next) {
   }
 }
 
-app.get("/get-user/' + id'", function (req, res, next) {
-  Workout.find(handler(res,next));
+app.get("/get-user/:id", function (req, res, next) {
+  console.log(req.params.id);
+  Workout.findById(req.params.id ,handler(res,next));
 });
 
 app.post("/post-log/:userId", function(req, res, next){
