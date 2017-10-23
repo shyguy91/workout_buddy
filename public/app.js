@@ -12,6 +12,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             templateUrl: '/templates/settings.html',
             controller: 'mainCtrl'
         })
+        .state('log', {
+            url: '/log',
+            templateUrl: '/templates/log.html',
+            controller: 'mainCtrl'
+        })
 }]);
 
 // routes: log, settings, main user
