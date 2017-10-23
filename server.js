@@ -43,10 +43,9 @@ app.use(function(err, req, res, next) {
 });
 
 
-// app.all('*', function(req, res) {
-//     res.sendFile("angular-routing/public/index.html")
-//   })
-  
+app.all('*', function(req, res) {
+  res.sendFile(__dirname  + "/public/index.html")
+})
   
   
   app.listen(8000, function() {

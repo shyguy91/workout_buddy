@@ -57,5 +57,4 @@ app.factory('mainFactory', [function () {
     // }
 
     return workoutObj;
-
 }]);
