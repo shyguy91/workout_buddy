@@ -1,7 +1,7 @@
 app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFactory) {
 
     // user = mainFactory.getUser(id);
-    mainFactory.dummyData = {
+    $scope.main = mainFactory.dummyData = {
         tempId: '59ede79c6800b51fb8b87f35',
         name: "Shy",
         image_url: "https://vignette3.wikia.nocookie.net/nintendo/images/e/e1/ShyGuy.PNG/revision/latest?cb=20110929231546&path-prefix=en",
