@@ -1,16 +1,19 @@
 app.controller('mainCtrl', ['$scope', 'mainFactory', function($scope, mainFactory){
-    // // Stats
-    // $scope.successionCounter = 3;
-    // // Goals
-    // $scope.goal = 1 + ' times per ' + 'week';
-    // // Progress
-    // $scope.progress = 5 / 25 * 100 + "%";
-    // // Motivational Quote
-    // $scope.quote = ["keep it up!", "everyday counts!"][1];
-    // // Date & Time
-
-    // // WorkOut Button
-    // $scope.workedOut = function(){
-    //     alert("I worked out!")
-    // };
+    // Stats
+    $scope.successionCounter = mainFactory.dummyData.currentStreakCounter;
+    // Goals
+    $scope.goal = mainFactory.dummyData.settings.goalFrequency + ' times per ' + mainFactory.dummyData.settings.goalIntervalSetting;
+    // Progress
+    $scope.progress = mainFactory.dummyData.savings / mainFactory.dummyData.settings.targetGiftPrice * 100 + "%";
+    // Motivational Quote
+    $scope.quote = mainFactory.quotes[Math.floor(Math.random() * mainFactory.quotes.length)];
+    // Date & Time
+    var date = new Date();
+    date.setMilliseconds(0);
+    date.setSeconds(0);
+    $scope.date = date;
+    // WorkOut Button
+    $scope.workedOut = function(){
+        alert("I worked out!")
+    };
 }]);
