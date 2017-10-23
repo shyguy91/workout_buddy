@@ -7,13 +7,13 @@ body {
     padding-top: 70px;
   }
 
-
-.navbar{
-    margin-bottom: 50px;
+.row {
+    margin-bottom: 20px;
 }
-/* ///////////////////////////////////////////// */
-    /* log.html */
- /* ///////////////////////////////////////////// */
+
+.settings-row {
+    margin-left: 10px;
+}
 
  .log-header {
     font-size: 50px;
@@ -24,3 +24,12 @@ body {
 font-size: 36px;
 margin-bottom: 50px;
     }
+
+.date-select {
+    margin-right: 5px;
+}
+
+.workout-button {
+    height: 100px;
+    width: 300px;
+}
