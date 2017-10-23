@@ -16,11 +16,12 @@ var workoutSchema = new mongoose.Schema({
     currentStreakCounter: { type: Number },
     streakRecord: { type: Number },
     settings : {
-                    workoutCost: { type: Number },
-                    goalFrequency: { type: Number },
-                    goalSetting: { type: String },
-                    successBonusMeter: { type: Number },
-                    bonusAmt: { type: Number }
+                workoutCost: { type: Number },
+                goalFrequency: { type: Number },
+                goalSetting: { type: String },
+                successBonusMeter: { type: Number },               streakIntervalBonus: { type: Number },
+                  bonusAmt: { type: Number },              
+                targetGiftPrice: { type: Number }
     },
     logs : [logSchema]
 });
