@@ -1,13 +1,34 @@
 app.factory('mainFactory', [function () {
-    var quotes = ["keep it up!", "everyday counts!"];
+    var quotes = {
+      quotes:  ["keep it up!", "everyday counts!"]
+    },
     var user = {
-        streakRecord: 3,
-        goalFrequency: 1,
-        goalSetting: 'week',
-        targetGiftPrice: 25,
-        savings: 5
+        name: name,
+        image: image_url,
+        savings: savings,
+        currentStreakCounter: currentStreakCounter,
+        allTimeBest: { type: Number },
+        settings: {
+            workoutCost: workoutCost,
+            goalFrequency: goalFrequency,
+            goalIntervalSetting: goalIntervalSetting,
+            streakTarget: streakTarget,
+            bonusAmt: bonusAmt,
+            targetGiftPrice: targetGiftPrice}
+        }
+    },
+    var log = {
+        currentStreakCounter: currentStreakCounter,
+        savings = user.savings + user.settings.workoutCost,
+        workoutCost = user.settings.workoutCost,
+        date,
+        bonusStreakAdded = function (){
+        if (user.currentStreakCounter === user.settings.streakTarget){
+                return settings.bonusAmt
+        }
+                return 0;
+        }
     }
-    user.quotes = quotes;
 
-    return user;
+        return quotes, user, log;
 }]);

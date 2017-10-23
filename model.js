@@ -3,23 +3,23 @@ var mongoose = require('mongoose');
 var logSchema = new mongoose.Schema({
   currentStreakCounter: { type: Number },
   savings: { type: Number },
-  perWorkoutSavingAmount: { type: Number },
+  workoutCost: { type: Number },
   date: Date,
   bonusStreakAdded: { type: Number }
 });
 
 var workoutSchema = new mongoose.Schema({
 
-  user: { type: String },
+  name: { type: String },
   image_url: { type: String },
   savings: { type: Number },
   currentStreakCounter: { type: Number },
-  streakRecord: { type: Number },
+  allTimeBest: { type: Number },
   settings: {
     workoutCost: { type: Number },
     goalFrequency: { type: Number },
-    goalSetting: { type: String },
-    streakIntervalBonus: { type: Number },
+    goalIntervalSetting: { type: String },
+    streakTarget: { type: Number },
     bonusAmt: { type: Number },
     targetGiftPrice: { type: Number }
   },
