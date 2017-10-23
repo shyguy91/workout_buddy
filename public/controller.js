@@ -29,7 +29,7 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
     // Stats
     $scope.successionCounter = mainFactory.dummyData.currentStreakCounter;
     // Goals
-    $scope.goal = mainFactory.dummyData.settings.goalFrequency + ' times per ' + mainFactory.dummyData.settings.goalIntervalSetting;
+    $scope.goal = mainFactory.dummyData.settings.goalFrequency + ' time(s) per ' + mainFactory.dummyData.settings.goalIntervalSetting;
     // Progress
     $scope.progress = mainFactory.dummyData.savings / mainFactory.dummyData.settings.targetGiftPrice * 100 + "%";
     // Motivational Quote
