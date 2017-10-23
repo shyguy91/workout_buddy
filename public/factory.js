@@ -1,4 +1,6 @@
 app.factory('mainFactory', [function () {
+    var bonusHit = false;
+    
     var quotes = {
         quotes: ["keep it up!", "everyday counts!"]
     }
@@ -25,6 +27,7 @@ app.factory('mainFactory', [function () {
     date: date,
     bonusStreakAdded: function () {
         if (user.currentStreakCounter === user.settings.streakTarget) {
+            bonusHit = true;
             return settings.bonusAmt
         }
         return 0;
