@@ -20,5 +20,3 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             controller: 'mainCtrl'
         })
 }]);
-
-// routes: log, settings, main user

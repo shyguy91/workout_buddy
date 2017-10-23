@@ -23,9 +23,12 @@ var handler = function (res, next) {
   }
 }
 
-app.get("/get-user/' + id'", function (req, res, next) {
-  Workout.find(handler(res,next));
+app.get("/get-user/:id", function (req, res, next) {
+  console.log(req.params.id);
+  Workout.findById(req.params.id ,handler(res,next));
 });
+
+//  req.params  is for the id to use the id to find the user in the database on page load
 
 app.post("/post-log/:userId", function(req, res, next){
   var workoutId = req.params.userId;
