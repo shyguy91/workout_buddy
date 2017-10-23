@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+    border: solid 1px red;
+}
+
+body {
+    padding-top: 70px;
+  }
+
+
+.navbar{
+    margin-bottom: 50px;
+}
