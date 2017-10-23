@@ -23,6 +23,13 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
                 workoutCost: 1,
                 date: new Date(),
                 bonusStreakAdded: 0
+            }, 
+            {
+                currentStreakCounter: 3,
+                savings: 8,
+                workoutCost: 1,
+                date: new Date(),
+                bonusStreakAdded: 2
             }]
     }
     // PROFILE //
