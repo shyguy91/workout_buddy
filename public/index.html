@@ -18,50 +18,27 @@
                 <div class="col-md-2"></div>
             <div class="col-md-2"> Logo </div>
             <div class="col-md-2">
-                    <a href="#"> Profile </a>
+                    <a ui-sref="profile"> Profile </a>
             </div>
             <div class="col-md-2">
                     <a href="#"> WishList </a>
             </div>
             <div class="col-md-2">
-                    <a href="#"> Settings </a>
+                    <a ui-sref="settings"> Settings </a>
             </div>
         </nav>
         </div>
 
-        <!-- Stats, Goals, Progress -->
-        <div class="row">
-            <div class="col-md-4">
-                {{successionCounter}}
-            </div>
-            <div class="col-md-4">
-                {{goal}}
-            </div>
-            <div class="col-md-4">
-                {{progress}}
-            </div>
+        <!-- Template placement -->
+        <div ui-view>
         </div>
-
-        <!-- Motivational Quote -->
-        <div class="row">
-            {{quote}}
-        </div>
-
-        <!-- WorkOut Button -->
-        <div>
-            <!-- Date & Time -->
-            <div class="row">
-                Date Time
-            </div>
-            <!-- Button -->
-            <div class="row">
-                <input type="button" class="btn btn-success" value="I Worked Out!" ng-click="workedOut()">
-            </div>
-        </div>
+ 
     </div>
 
 
     <script src="angular/angular.js"></script>
+    <script src="@uirouter/core/_bundles/ui-router-core.js"></script>
+    <script src="@uirouter/angularjs/release/ui-router-angularjs.js"></script>
     <script src="app.js"></script>
     <script src="factory.js"></script>
     <script src="controller.js"></script>
