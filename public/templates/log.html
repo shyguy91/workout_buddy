@@ -1,10 +1,11 @@
-<div class="row log-row">
-        <div class="col-md-12  log-header text-center">
-            <h1 class="log-header">{{name}}'s Log Database</h1>
-        </div>
-</div>  
+<div>
+    <div class="row log-row">
+            <div class="col-md-12  log-header text-center">
+                <h1 class="log-header">{{name}}'s Log Database</h1>
+            </div>
+    </div>  
 
-    <div ng-repeat="dummy in mainFactory.dummyData">
+    <div ng-repeat="main in main">
         <div class="row log-row">
             <div class="col-md-12 date text-center">
                 Log Entry for {{logDate | date}}
@@ -21,11 +22,12 @@
         </div>
         <div class="row log-row">
             <div class="col-md-6 savings text-center">
-                You saved {{logSavings | currency}} from completed exercises.
+                You have saved {{logSavings | currency}} from completed exercises.
             </div>
         
             <div ng-if="bonusHit" class="col-md-6 bonusStreakAdded text-center">
-              By the way, with this log you add a bonus of  {{logBonusStreakAdded | currency}} from hitting your goals.
+                By the way, with this log you add a bonus of  {{logBonusStreakAdded | currency}} from hitting your goals.
             </div>
         </div>
     </div>
+</div>
