@@ -23,8 +23,21 @@ var handler = function (res, next) {
   }
 }
 
-app.post('/post-user', function(request, response, next){
-  Workout.create(request.body, handler(response, next));
+app.get("/get-user/' + id'", function (req, res, next) {
+  Workout.find(handler(res,next));
+});
+
+app.post("/post-log/:userId", function(req, res, next){
+  var workoutId = req.params.userId;
+  var logToBeSaved = req.body;
+  console.log(workoutId)
+  console.log(logToBeSaved) 
+
+      Workout.findById(workoutId, function(err, workout){
+      workout.logs.push(logToBeSaved);
+      workout.save();
+      res.send(workout)
+  });
 });
 
 app.all('*', function (req, res) {
@@ -51,3 +64,4 @@ app.use(function (err, req, res, next) {
 
 app.listen(8000, function () {
   console.log("yo yo yo, on 8000!!")
+});
