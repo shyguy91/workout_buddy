@@ -24,6 +24,10 @@ var handler = function(res, next){
   }
 
 
+  app.all('*', function(req, res) {
+    res.sendFile(__dirname  + "/public/index.html")
+  })
+    
 
 // error handler to catch 404 and forward to main error handler
 app.use(function(req, res, next) {
@@ -43,10 +47,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.all('*', function(req, res) {
-  res.sendFile(__dirname  + "/public/index.html")
-})
-  
   
   app.listen(8000, function() {
     console.log("yo yo yo, on 8000!!")

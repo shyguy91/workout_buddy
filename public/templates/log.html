@@ -1,26 +1,30 @@
-<h1>{{name}}'s Log Database</h1>
+<div class="row log-row">
+        <div class="col-md-12  log-header text-center">
+            <h1 class="log-header">{{name}}'s Log Database</h1>
+        </div>
+</div>  
 
     <div>
-        <div class="row">
-            <div class="col-md-12 log-row date text-center">
+        <div class="row log-row">
+            <div class="col-md-12 date text-center">
                 Log Entry for {{date | date}}
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 log-row workoutCost text-center">
+        <div class="row log-row">
+            <div class="col-md-6 workoutCost text-center">
             Each completed workout nets {{workoutCost | currency}} to the savings account.
             </div>
-            <div class="col-md-6 log-row currentStreak text-center">
+            <div class="col-md-6 currentStreak text-center">
             Your current streak is at {{currentStreakCounter}} days.
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 log-row savings text-center">
+        <div class="row log-row">
+            <div class="col-md-6 savings text-center">
                 You saved {{savings | currency}} from completed exercises.
             </div>
         
-            <div ng-if="bonusHit" class="col-md-6 log-row bonusStreakAdded text-center">
+            <div ng-if="bonusHit" class="col-md-6 bonusStreakAdded text-center">
               By the way, with this log you add a bonus of  {{bonusStreakAdded | currency}} from hitting your goals.
             </div>
         </div>

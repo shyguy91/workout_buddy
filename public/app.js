@@ -15,7 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             controller: 'mainCtrl'
         })
         .state('log', {
-            url: '/log',
+            url:'/log',
             templateUrl: '/templates/log.html',
             controller: 'mainCtrl'
         })
