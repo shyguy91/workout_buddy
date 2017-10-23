@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class="container-fluid" ng-app="workoutBuddy" ng-controller="mainCtrl">
+<body ng-app="workoutBuddy">
+    <div class="container-fluid" ng-controller="mainCtrl">
         <!-- Navigation -->
         <div class="row">
             <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="col-md-2"></div>
+                <div class="col-md-1"></div>
             <div class="col-md-2"> Logo </div>
             <div class="col-md-2">
                     <a ui-sref="profile"> Profile </a>
+            </div>
+            <div class="col-md-2">
+                    <a ui-sref="log"> Logs </a>
             </div>
             <div class="col-md-2">
                     <a href="#"> WishList </a>
