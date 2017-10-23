@@ -25,7 +25,7 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
                 bonusStreakAdded: 0
             }]
     }
-
+    // PROFILE //
     // Stats
     $scope.successionCounter = mainFactory.dummyData.currentStreakCounter;
     // Goals
@@ -53,5 +53,28 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
                 break;
         }
 
+    };
+
+    // LOGS //
+    var currentLog = mainFactory.dummyData.logs[mainFactory.dummyData.logs.length - 1];
+    $scope.name = mainFactory.dummyData.name;
+    $scope.logDate = currentLog.date;
+    $scope.logWorkoutCost = currentLog.workoutCost;
+    $scope.logCurrentStreakCounter = currentLog.currentStreakCounter;
+    $scope.logSavings = currentLog.savings;
+    $scope.logBonusStreakAdded = currentLog.bonusStreakAdded;
+
+    // SETTINGS //
+   $scope.updateSettings = function(){
+        var settingsObj = {
+            workoutCost: $scope.newWorkoutCost,
+            goalFrequency: $scope.newGoalFrequency,
+            goalIntervalSetting: $scope.newGoalIntervalSetting,
+            streakTarget: $scope.newStreakTarget,
+            bonusAmt: $scope.newBonusAmt,
+            targetGiftPrice: $scope.newTargetGiftPrice
+        }
+        console.log(settingsObj);
+        // post/put update settings
     };
 }]);

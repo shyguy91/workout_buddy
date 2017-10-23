@@ -7,25 +7,25 @@
     <div>
         <div class="row log-row">
             <div class="col-md-12 date text-center">
-                Log Entry for {{date | date}}
+                Log Entry for {{logDate | date}}
             </div>
         </div>
 
         <div class="row log-row">
             <div class="col-md-6 workoutCost text-center">
-            Each completed workout nets {{workoutCost | currency}} to the savings account.
+            Each completed workout nets {{logWorkoutCost | currency}} to the savings account.
             </div>
             <div class="col-md-6 currentStreak text-center">
-            Your current streak is at {{currentStreakCounter}} days.
+            Your current streak is at {{logCurrentStreakCounter}} days.
             </div>
         </div>
         <div class="row log-row">
             <div class="col-md-6 savings text-center">
-                You saved {{savings | currency}} from completed exercises.
+                You saved {{logSavings | currency}} from completed exercises.
             </div>
         
             <div ng-if="bonusHit" class="col-md-6 bonusStreakAdded text-center">
-              By the way, with this log you add a bonus of  {{bonusStreakAdded | currency}} from hitting your goals.
+              By the way, with this log you add a bonus of  {{logBonusStreakAdded | currency}} from hitting your goals.
             </div>
         </div>
     </div>
