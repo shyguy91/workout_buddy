@@ -42,6 +42,7 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
     // WorkOut Button
     $scope.workedOut = function () {
         alert("I worked out!")
+        mainFactory.getUser(mainFactory.dummyData.tempId).then(function(data){console.log(data)})
         //post log
         var logObj = {};
         switch (mainFactory.dummyData.settings.goalIntervalSetting) {
