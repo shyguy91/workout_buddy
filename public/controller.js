@@ -48,6 +48,9 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
         };
         switch ($scope.user.settings.goalIntervalSetting) {
             case 'week':
+                if($scope.user.logs.length == 0){
+                    break;
+                }
                 var lastLogDate = new Date($scope.user.logs[$scope.user.logs.length - 1].date);
                 if ($scope.date.getDate() - 7 >= lastLogDate.getDate()
                     && $scope.date.getDate() <= lastLogDate.getDate() + 13) {
