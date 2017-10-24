@@ -8,18 +8,18 @@
 
 <div class="row profile-row">
         <div class="col-md-12 text-center goal">
-            My current goal is to workout {{goal}}
+            My current goal is to workout {{user.settings.goalFrequency}} time(s) per {{user.settings.goalIntervalSetting}}
         </div>
 </div>
 
 <div class="row profile-row">
     <div class="col-md-6 text-center successionCounter">
-        I have succeded {{successionCounter}} times in a row!
+        I have succeded {{user.currentStreakCounter}} time(s) in a row!
     </div>
     
     <div class="col-md-6 text-center my-progress">
-        My total savings are: {{savings | currency}}. 
-        <br>I have collected {{progress}} of my reward.
+        My total savings are: {{user.savings | currency}}. 
+        <br>I have collected {{(user.savings / user.settings.targetGiftPrice * 100).toFixed(2)}}% of my reward.
     </div>
 </div>
 

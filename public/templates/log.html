@@ -1,11 +1,11 @@
 <div>
     <div class="row log-row">
             <div class="col-md-12  log-header text-center">
-                <h1 class="log-header">{{name}}'s Log Database</h1>
+                <h1 class="log-header">{{user.name}}'s Log Database</h1>
             </div>
     </div>  
 
-    <div ng-repeat="log in logs">
+    <div ng-repeat="log in user.logs">
         <div class="row log-row">
             <div class="col-md-12 date text-center">
                 Log Entry for {{log.date | date}}

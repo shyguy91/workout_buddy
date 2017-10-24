@@ -29,14 +29,25 @@ app.get("/get-user/:id", function (req, res, next) {
 
 //  req.params  is for the id to use the id to find the user in the database on page load
 
-app.post("/post-log/:userId", function(req, res, next){
+app.post("/post-workout/:userId", function(req, res, next){
   var workoutId = req.params.userId;
   var logToBeSaved = req.body;
       Workout.findById(workoutId, function(err, workout){
-      workout.logs.push(logToBeSaved);
+      workout.logs.push(logToBeSaved); // push log
+      // update user data
+      workout.currentStreakCounter = logToBeSaved.currentStreakCounter;
+      workout.savings = logToBeSaved.savings;
+      workout.allTimeBest = logToBeSaved.allTimeBest;
+
       workout.save();
       res.send(workout)
   });
+});
+
+app.post("/post-user", function(req, res, next){
+      Workout.create(req.body, function(err, user){
+        res.send(user);
+      });
 });
 
 app.all('*', function (req, res) {

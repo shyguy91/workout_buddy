@@ -1,6 +1,6 @@
 app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFactory) {
 
-    var user = {
+    $scope.user = {
         name: "",
         image_url: "",
         savings: 0,
@@ -23,17 +23,11 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
                 bonusStreakAdded: 0
             }]
     };
-    mainFactory.getUser('59ede79c6800b51fb8b87f35')
-        .then(function (data) {
-            user = data.data;
-            $scope.successionCounter = user.currentStreakCounter;
-            $scope.goal = user.settings.goalFrequency + ' time(s) per ' + user.settings.goalIntervalSetting;
-            $scope.savings = user.savings;
-            $scope.progress = (user.savings / user.settings.targetGiftPrice * 100).toFixed(2) + "%";
 
-            // LOGS //
-            $scope.logs = user.logs;
-            $scope.name = user.name;
+    $scope.progress = ($scope.user.savings / $scope.user.settings.targetGiftPrice * 100).toFixed(2) + "%";
+    mainFactory.getUser("59eef4cf045f38594370f162")
+        .then(function (data) {
+            $scope.user = data.data;            
         });
 
     // PROFILE //
@@ -46,36 +40,42 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
     $scope.workedOut = function () {
         alert("Amazing! Your workout has been logged.")
         var logObj = {
-            currentStreakCounter: 0,
-            savings: user.savings + user.settings.workoutCost,
-            workoutCost: user.settings.workoutCost,
+            currentStreakCounter: $scope.user.currentStreakCounter,
+            savings: $scope.user.savings + $scope.user.settings.workoutCost,
+            workoutCost: $scope.user.settings.workoutCost,
             date: $scope.date,
-            bonusStreakAdded: 0};
-        switch (user.settings.goalIntervalSetting) {
+            bonusStreakAdded: 0
+        };
+        switch ($scope.user.settings.goalIntervalSetting) {
             case 'week':
-                if($scope.date.getDate() - 7 >= user.logs[user.logs.length - 1].date.getDate()
-                    && $scope.date.getDate() <= user.logs[user.logs.length - 1].date.getDate() + 13) {
-                        logObj.currentStreakCounter = user.currentStreakCounter + 1;
-                        if(logObj.currentStreakCounter % user.settings.streakTarget == 0) {
-                            logObj.bonusStreakAdded = user.settings.bonusAmt;
-                            logObj.savings += user.settings.bonusAmt;
-                        }
-                    }                
+                var lastLogDate = new Date($scope.user.logs[$scope.user.logs.length - 1].date);
+                if ($scope.date.getDate() - 7 >= lastLogDate.getDate()
+                    && $scope.date.getDate() <= lastLogDate.getDate() + 13) {
+                    logObj.currentStreakCounter++;
+                    if (logObj.currentStreakCounter % $scope.user.settings.streakTarget == 0) {
+                        logObj.bonusStreakAdded = $scope.user.settings.bonusAmt;
+                        logObj.savings += $scope.user.settings.bonusAmt;
+                    }
+                }
+                else if($scope.date.getDate() > lastLogDate.getDate() + 13) {
+                    logObj.currentStreakCounter = 0;
+                }
                 break;
 
             default:
                 break;
         }
-        // Post Log Request
-        mainFactory.postLog('59ede79c6800b51fb8b87f35', logObj)
-        .then(function (data) { 
-            user.logs.push(data.data.logs[data.data.logs.length - 1]);
-            user.savings = data.data.logs[data.data.logs.length - 1].savings;
-            user.currentStreakCounter = data.data.logs[data.data.logs.length - 1].currentStreakCounter
-            if(user.currentStreakCounter > user.allTimeBest) {
-                user.allTimeBest = user.currentStreakCounter;
-            }
-        })
+        // Post Workout Request
+        mainFactory.postWorkout("59eef4cf045f38594370f162", logObj)
+            .then(function (data) {
+                console.log(data)
+                $scope.user.logs.push(data.data.logs[data.data.logs.length - 1]);
+                $scope.user.savings = data.data.logs[data.data.logs.length - 1].savings;
+                $scope.user.currentStreakCounter = data.data.logs[data.data.logs.length - 1].currentStreakCounter
+                if ($scope.user.currentStreakCounter > $scope.user.allTimeBest) {
+                    $scope.user.allTimeBest = $scope.user.currentStreakCounter;
+                }
+            })
     };
 
     // SETTINGS //
@@ -91,4 +91,12 @@ app.controller('mainCtrl', ['$scope', 'mainFactory', function ($scope, mainFacto
         console.log(settingsObj);
         // post/put update settings
     };
+
+    // WishList //
+    $scope.tbd = function(){alert('Work in progress TBD')
+                // mainFactory.postUser({"name" : "Shy","image_url" : "https://vignette3.wikia.nocookie.net/nintendo/images/e/e1/ShyGuy.PNG/revision/latest?cb=20110929231546&path-prefix=en","savings" : 7,"currentStreakCounter" : 2,"logs" : [],"settings" : {"workoutCost" : 1,"goalFrequency" : 1,"goalIntervalSetting" : "week","streakTarget" : 3,"bonusAmt" : 2,"targetGiftPrice" : 30}})
+                // .then(function(data){
+                //     console.log(data);
+                // })
+            };
 }]);
